@@ -7,6 +7,15 @@
 include_once 'compro_highlight.features.inc';
 
 /**
+ * Implements hook_admin_paths().
+ */
+function compro_highlight_admin_paths() {
+  return array(
+    'highlight/*' => TRUE,
+  );
+}
+
+/**
  * Implements hook_entity_info_alter().
  */
 function compro_highlight_entity_info_alter(&$entity_info) {
