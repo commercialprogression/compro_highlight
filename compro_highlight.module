@@ -1,0 +1,39 @@
+<?php
+/**
+ * @file
+ * Code for the highlight feature.
+ */
+
+include_once 'compro_highlight.features.inc';
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function compro_highlight_entity_info_alter(&$entity_info) {
+  if (isset($entity_info['highlight'])) {
+    $entity_info['highlight']['label callback'] = 'compro_highlight_label';
+  }
+}
+
+/**
+ * Label callback.
+ */
+function compro_highlight_label($entity) {
+  $output = 'Highlight entity';
+
+  switch ($entity->bundle()) {
+    case 'standard':
+      if (isset($entity->field_highlight_headline['und'][0]['safe_value'])) {
+        $output = $entity->field_highlight_headline['und'][0]['safe_value'];
+      }
+      break;
+    
+    case 'collection':
+      if (isset($entity->field_highlight_collection_name['und'][0]['safe_value'])) {
+        $output = $entity->field_highlight_collection_name['und'][0]['safe_value'];
+      }
+      break;
+  }
+
+  return $output;
+}
