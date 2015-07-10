@@ -70,3 +70,17 @@ function compro_highlight_eck_entity_type_info() {
   );
   return $items;
 }
+
+/**
+ * Implements hook_paragraphs_info().
+ */
+function compro_highlight_paragraphs_info() {
+  $items = array(
+    'highlight' => array(
+      'name' => 'Highlight',
+      'bundle' => 'highlight',
+      'locked' => '1',
+    ),
+  );
+  return $items;
+}

@@ -25,7 +25,7 @@ function compro_highlight_field_default_field_instances() {
         'weight' => 1,
       ),
       'small' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 1,
@@ -79,12 +79,17 @@ function compro_highlight_field_default_field_instances() {
       ),
       'small' => array(
         'label' => 'hidden',
-        'module' => 'entityreference',
+        'module' => 'flexslider_entityreference',
         'settings' => array(
-          'links' => 0,
+          'caption_source' => 'entity_label',
+          'caption_source_token' => '',
+          'display_caption' => 0,
+          'optionset' => 'highlight_field',
+          'thumbnail_path' => '',
           'view_mode' => 'small',
+          'view_mode_thumb' => '_empty',
         ),
-        'type' => 'entityreference_entity_view',
+        'type' => 'entityreference_entity_flexslider',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -133,9 +138,14 @@ function compro_highlight_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
+        'module' => 'title',
+        'settings' => array(
+          'title_class' => '',
+          'title_link' => '',
+          'title_style' => 'h2',
+        ),
+        'type' => 'title_linked',
+        'weight' => 0,
       ),
       'small' => array(
         'label' => 'hidden',
@@ -191,7 +201,7 @@ function compro_highlight_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'small' => array(
         'label' => 'hidden',
@@ -257,7 +267,7 @@ function compro_highlight_field_default_field_instances() {
           'file_view_mode' => 'default',
         ),
         'type' => 'file_rendered',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'small' => array(
         'label' => 'above',
@@ -322,7 +332,7 @@ function compro_highlight_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'small' => array(
         'label' => 'above',
@@ -359,10 +369,78 @@ function compro_highlight_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'paragraphs_item-highlight-field_paragraph_highlight'
+  $field_instances['paragraphs_item-highlight-field_paragraph_highlight'] = array(
+    'bundle' => 'highlight',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'links' => 0,
+          'view_mode' => 'default',
+        ),
+        'type' => 'entityreference_entity_view',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'links' => 1,
+          'view_mode' => 'small',
+        ),
+        'type' => 'entityreference_entity_view',
+        'weight' => 0,
+      ),
+      'small' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_paragraph_highlight',
+    'label' => 'Highlight(s)',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'inline_entity_form',
+      'settings' => array(
+        'fields' => array(),
+        'type_settings' => array(
+          'allow_existing' => 1,
+          'allow_new' => 1,
+          'delete_references' => 0,
+          'label_plural' => 'Highlights',
+          'label_singular' => 'Highlight',
+          'match_operator' => 'CONTAINS',
+          'override_labels' => 1,
+        ),
+      ),
+      'type' => 'inline_entity_form',
+      'weight' => 1,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Call to action');
   t('Headline');
+  t('Highlight(s)');
   t('Highlights');
   t('Media');
   t('Name');
